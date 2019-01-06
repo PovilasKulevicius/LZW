@@ -19,7 +19,9 @@ public class Decode {
     //Variables for UI
     private File inputFile;
     private File outputFile;
-    public Decode() {}
+    public Decode() {
+
+    }
 
     public void resetDefaults(){
         dictionary = new HashMap<>();
@@ -28,9 +30,9 @@ public class Decode {
         fullAndDontAddIt = false;
     }
 
-    public void decode(URL fileToDecode, URL outputFileUrl) throws URISyntaxException {
-        this.inputFile = new File(fileToDecode.toURI());
-        this.outputFile = new File(outputFileUrl.toURI());
+    public void decode(String fileToDecode, String outputFileUrl) throws URISyntaxException {
+        this.inputFile = new File(fileToDecode);
+        this.outputFile = new File(outputFileUrl);
 
         resetDefaults();
         initDictionary();

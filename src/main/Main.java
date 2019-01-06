@@ -1,31 +1,27 @@
 package main;
 
-import com.sun.deploy.util.ArrayUtil;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+
+import main.models.Decode;
+import main.models.Encode;
 
 import java.io.IOException;
-import java.math.BigInteger;
-import java.net.URL;
-import java.util.Vector;
+import java.net.URISyntaxException;
+import java.util.Scanner;
 
-public class Main extends Application {
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        URL resource = getClass().getClassLoader().getResource("UI/MainUI.fxml");
-        Parent root = FXMLLoader.load(resource);
-        primaryStage.setScene(new Scene(root));
-        primaryStage.setTitle("LZW");
-        primaryStage.show();
-    }
+public class Main {
 
 
-    public static void main(String[] args) throws IOException {
-        launch(args);
+    public static void main(String[] args) throws IOException, URISyntaxException {
+        Scanner in = new Scanner(System.in);
+        int length = in.nextInt();
+        if(length == 0)
+            length = 63;
+
+        //launch(args);
+        Encode enc = new Encode("input.txt", length);
+        enc.encode();
+        Decode dec = new Decode();
+        dec.decode("input.txt.Encoded","result.txt");
     }
 
 

@@ -14,20 +14,17 @@ public class Encode {
     private int currentNumberLen;
     private String sequence = "";
     private String encodedString = "";
-    private LzwUtils.DictionaryMode dictionaryMode;   // 0 - grow infinite, 1 - clear, 2 - full and keep using full
+    //private LzwUtils.DictionaryMode dictionaryMode = ;   // 0 - grow infinite, 1 - clear, 2 - full and keep using full
     private boolean fullAndDontAddIt = false;
     //Variables for UI
     private File inputFile;
     private File outputFile;
 
 
-    public Encode(URL filePathUrl, int maxNumberLen, LzwUtils.DictionaryMode dictionaryMode) throws URISyntaxException {
-        this.inputFile = new File(filePathUrl.toURI());
+    public Encode(String file, int maxNumberLen){
+        this.inputFile = new File(file);
         this.outputFile = new File(inputFile.getName() + ".Encoded");
-        this.dictionaryMode = dictionaryMode;
-        if (dictionaryMode == LzwUtils.DictionaryMode.Infinite)
-            this.maxNumberLen = 63; // just a big number
-        else
+        //this.dictionaryMode = dictionaryMode;
             this.maxNumberLen = maxNumberLen;
 
         maxDictSize = (int) Math.pow(2.0, (float) this.maxNumberLen);
@@ -51,7 +48,7 @@ public class Encode {
             DataOutputStream outputStream = new DataOutputStream(new FileOutputStream(outputFile));
             //save dictionary mode since we will need it while decoding
 
-            byte metaData = (byte)(dictionaryMode.getValue()<<6);
+            byte metaData = (byte)(/*dictionaryMode.getValue()*/2<<6);
             metaData |= maxNumberLen;
             outputStream.writeByte(metaData);
 
@@ -77,8 +74,6 @@ public class Encode {
             outputStream.close();
 
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,15 +89,15 @@ public class Encode {
         //check whether max size reached
         if (dictionary.size() == maxDictSize - 1) {
 
-            if (dictionaryMode == LzwUtils.DictionaryMode.Infinite) {
-                maxNumberLen++;
-                maxDictSize =(int) Math.pow(2.0,(float) this.maxNumberLen);
-            } else if (dictionaryMode == LzwUtils.DictionaryMode.Clear) {
-                dictionary = new HashMap<>();
-                initDictionary();
-            } else if (dictionaryMode == LzwUtils.DictionaryMode.Continue) {
+//            if (dictionaryMode == LzwUtils.DictionaryMode.Infinite) {
+//                maxNumberLen++;
+//                maxDictSize =(int) Math.pow(2.0,(float) this.maxNumberLen);
+//            } else if (dictionaryMode == LzwUtils.DictionaryMode.Clear) {
+//                dictionary = new HashMap<>();
+//                initDictionary();
+//            } else if (dictionaryMode == LzwUtils.DictionaryMode.Continue) {
                 fullAndDontAddIt = true;
-            }
+            //}
         }
         //check whether we need to increase code word lenght
         if (dictionary.size() == Math.pow(2,currentNumberLen)&& currentNumberLen < maxNumberLen){
