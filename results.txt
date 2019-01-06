@@ -1,0 +1,128 @@
+----------------------------START--------------------------------
+File being compressed: AltoriuSeseli.pdf
+Infinite size
+File size: 3435008 Compressed size: 4019400
+Compression Coefficient: 0.85460716
+Duration : 53214703408
+Minutes: 0.8869117234667
+
+15 size with no clear
+File size: 3435008 Compressed size: 5629612
+Compression Coefficient: 0.6101678
+Duration : 56309828346
+Minutes: 0.9384971391
+
+
+15 size with clear
+File size: 3435008 Compressed size: 5055270
+Compression Coefficient: 0.6794905
+Duration : 53641231803
+Minutes: 0.89402053005
+-----------------------------------------------------------------------------------------
+File being compressed: Dot.bmp
+Infinite size
+File size: 54226998 Compressed size: 17580
+Compression Coefficient: 3084.5847
+Duration : 576757675852
+Minutes: 9.6126279308667
+
+
+15 size with no clear
+File size: 54226998 Compressed size: 17580
+Compression Coefficient: 3084.5847
+Duration : 578421411161
+Minutes: 9.6403568526833
+
+
+15 size with clear
+File size: 54226998 Compressed size: 17580
+Compression Coefficient: 3084.5847
+Duration : 571284925234
+Minutes: 9.5214154205667 
+-----------------------------------------------------------------------------------------
+File being compressed: Dot.png
+Infinite size
+File size: 221219 Compressed size: 11380
+Compression Coefficient: 19.43928
+Duration : 1183891358
+Minutes: 0.0197315226333
+
+
+15 size with no clear
+File size: 221219 Compressed size: 11380
+Compression Coefficient: 19.43928
+Duration : 1192528988
+Minutes: 0.0198754831333 
+
+
+15 size with clear
+File size: 221219 Compressed size: 11380
+Compression Coefficient: 19.43928
+Duration : 1227572148
+Minutes: 0.0204595358  
+-----------------------------------------------------------------------------------------
+File being compressed: Dot.jpg
+Infinite size
+File size: 850444 Compressed size: 8151
+Compression Coefficient: 104.33616
+Duration : 4859228444
+Minutes: 0.0809871407333 
+
+
+15 size with no clear
+File size: 850444 Compressed size: 8151
+Compression Coefficient: 104.33616
+Duration : 4346814815
+Minutes: 0.0724469135833  
+
+
+15 size with clear
+File size: 850444 Compressed size: 8151
+Compression Coefficient: 104.33616
+Duration : 4542498370
+Minutes: 0.075708306167  
+-----------------------------------------------------------------------------------------
+File being compressed: cardano
+Infinite size
+File size: 36190040 Compressed size: 18068902
+Compression Coefficient: 2.0028908
+Duration : 340230625185
+Minutes: 5.67051041975   
+
+
+15 size with no clear
+File size: 36190040 Compressed size: 45258369
+Compression Coefficient: 0.799632
+Duration : 470488039506
+Minutes: 7.8414673251   
+
+
+15 size with clear
+File size: 36190040 Compressed size: 19561441
+Compression Coefficient: 1.8500704
+Duration : 300209187556
+Minutes: 5.0034864592667   
+-----------------------------------------------------------------------------------------
+File being compressed: cardano.exe
+Infinite size
+File size: 24672319 Compressed size: 14051460
+Compression Coefficient: 1.7558546
+Duration : 216927144296
+Minutes: 3.6154524049333 
+
+
+15 size with no clear
+File size: 24672319 Compressed size: 27241226
+Compression Coefficient: 0.9056979
+Duration : 301186993382
+Minutes: 5.0197832230333 
+
+
+15 size with clear
+File size: 24672319 Compressed size: 14939325
+Compression Coefficient: 1.6515017
+Duration : 229469981629
+Minutes: 3.8244996938167 
+-----------------------------------------------------------------------------------------
+
+Process finished with exit code 0
