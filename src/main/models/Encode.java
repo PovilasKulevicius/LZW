@@ -21,9 +21,9 @@ public class Encode {
     private File outputFile;
 
 
-    public Encode(String file, int maxNumberLen){
-        this.inputFile = new File(file);
-        this.outputFile = new File(inputFile.getName() + ".Encoded");
+    public Encode(String input,String output, int maxNumberLen){
+        this.inputFile = new File(input);
+        this.outputFile = new File(output);
         //this.dictionaryMode = dictionaryMode;
             this.maxNumberLen = maxNumberLen;
 
