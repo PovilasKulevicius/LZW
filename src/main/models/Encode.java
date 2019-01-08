@@ -25,7 +25,7 @@ public class Encode {
         this.inputFile = new File(input);
         this.outputFile = new File(output);
         //this.dictionaryMode = dictionaryMode;
-            this.maxNumberLen = maxNumberLen;
+        this.maxNumberLen = maxNumberLen;
 
         maxDictSize = (int) Math.pow(2.0, (float) this.maxNumberLen);
         currentNumberLen = maxNumberLen == 8 ? 8 : 9;
@@ -109,6 +109,8 @@ public class Encode {
     private void doMagicWithDictionary(String currentByte) {
 
         sequence += currentByte;
+        //System.out.println("currentbyte: "+currentByte);
+        //System.out.println("sequence: "+sequence);
 
         // If this sequence is not in the dictionary.
         if (!dictionary.containsKey(sequence)) {
@@ -118,15 +120,21 @@ public class Encode {
 
             // Remove the last byte from the sequence.
             sequence = sequence.substring(0, sequence.length() - 1);
+            //System.out.println("sequence: "+sequence);
 
             // convert value of dictionary to compressed bits and add it to result String
             byte[] byteInt = intToBytes(dictionary.get(sequence));
             String temp = convertBitsToBitString(byteInt, byteInt.length);
+            //System.out.println("temp: "+temp);
             encodedString += temp.substring(temp.length() - currentNumberLen);
+            //System.out.println("currentNumberLen: " + currentNumberLen);
+            //System.out.println("encodedString: "+encodedString);
 
             // Start the sequence afresh with the new byte string.
             sequence = currentByte;
+            //System.out.println("sequence_last: " + sequence);
         }
+        //System.out.println("");
     }
 
     private void writeDataToOutput(DataOutputStream outputStream) throws IOException {

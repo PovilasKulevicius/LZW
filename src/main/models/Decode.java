@@ -44,7 +44,8 @@ public class Decode {
             getMetaDataFromFirstByte(readByte);
 
             while (-1 != (readByte = fs.read())) {
-                encodedString += convertBitsToBitString ((byte)readByte);
+                encodedString += convertBitsToBitString((byte) readByte);
+                //System.out.println("encodedString: " + encodedString);
                 if (encodedString.length() < currentNumberLen)
                     continue;
 
@@ -74,17 +75,17 @@ public class Decode {
 
     private void checkDictionary() {
         if (dictionary.size() == maxDictSize - 1) {
-
-            if (dictionaryMode == LzwUtils.DictionaryMode.Infinite) {
-                //increase size and word len
-                maxNumberLen++;
-                maxDictSize =(int) Math.pow(2.0,(float) this.maxNumberLen);
-            } else if (dictionaryMode == LzwUtils.DictionaryMode.Clear) {
-                dictionary = new HashMap<>();
-                initDictionary();
-            } else if (dictionaryMode == LzwUtils.DictionaryMode.Continue) {
+//
+//            if (dictionaryMode == LzwUtils.DictionaryMode.Infinite) {
+//                //increase size and word len
+//                maxNumberLen++;
+//                maxDictSize =(int) Math.pow(2.0,(float) this.maxNumberLen);
+//            } else if (dictionaryMode == LzwUtils.DictionaryMode.Clear) {
+//                dictionary = new HashMap<>();
+//                initDictionary();
+//            } else if (dictionaryMode == LzwUtils.DictionaryMode.Continue) {
                 fullAndDontAddIt = true;
-            }
+            //}
         }
         //check whether we need to increase code word lenght
         if (dictionary.size() == Math.pow(2,currentNumberLen) -1 && currentNumberLen < maxNumberLen){
@@ -95,6 +96,8 @@ public class Decode {
     private void doUnMagicWithDictionary (Integer currentCode, DataOutputStream outputStream) throws IOException {
         // Decompress data, reconstructing dictionary.
         if(!fullAndDontAddIt && dictionary.size() < maxDictSize) {
+            //System.out.println("dictionary.size(): " + dictionary.size());
+            //System.out.println("sequence: " + sequence);
             if (currentCode == dictionary.size() + 1) {
                 //extra case handling
                 dictionary.put(dictionary.size() + 1, sequence + sequence.substring(0, 1));
@@ -108,6 +111,7 @@ public class Decode {
 
         // Start the sequence afresh with the new byte string.
         sequence = dictionary.get(currentCode);
+        //System.out.println("");
     }
 
     private int convertBitStringToValue() {
@@ -117,6 +121,7 @@ public class Decode {
 
         String temp = encodedString.substring(0, currentNumberLen);
         encodedString = encodedString.substring(currentNumberLen);
+        //System.out.println("INT: "+Integer.parseInt(temp, 2));
         return Integer.parseInt(temp, 2);
     }
 

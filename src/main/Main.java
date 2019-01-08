@@ -12,14 +12,12 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-        String input, output,result;
-
-        Encode enc = new Encode("input.txt", "output.txt", 12);
+        Encode enc = new Encode("stakis.pdf", "output.txt", 16);
         enc.encode();
         Decode dec = new Decode();
-        dec.decode("output.txt", "result.txt");
+        dec.decode("output.txt", "result.pdf");
 
-
+//      String input, output,result;
 //        while(true) {
 //            System.out.println("c - encode");
 //            System.out.println("d - decode");
@@ -34,7 +32,7 @@ public class Main {
 //                    input = in.next();
 //                    output = in.next();
 //                    if (length == 0)
-//                        length = 100;
+//                        length = 16;
 //                    Encode enc = new Encode(input, output, length);
 //                    enc.encode();
 //                    break;
