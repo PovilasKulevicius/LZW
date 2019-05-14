@@ -16,7 +16,7 @@ public class Encode {
     private String encodedString = "";
     //private LzwUtils.DictionaryMode dictionaryMode = ;   // 0 - grow infinite, 1 - clear, 2 - full and keep using full
     private boolean fullAndDontAddIt = false;
-    //Variables for UI
+
     private File inputFile;
     private File outputFile;
 

@@ -16,7 +16,7 @@ public class Decode {
     private int currentNumberLen;
     private LzwUtils.DictionaryMode dictionaryMode;   // 0 - grow infinite, 1 - clear, 2 - full and keep using full
     private boolean fullAndDontAddIt = false;
-    //Variables for UI
+
     private File inputFile;
     private File outputFile;
     public Decode() {
@@ -95,14 +95,19 @@ public class Decode {
 
     private void doUnMagicWithDictionary (Integer currentCode, DataOutputStream outputStream) throws IOException {
         // Decompress data, reconstructing dictionary.
+        //System.out.println(currentCode);
         if(!fullAndDontAddIt && dictionary.size() < maxDictSize) {
             //System.out.println("dictionary.size(): " + dictionary.size());
-            //System.out.println("sequence: " + sequence);
+            //System.out.println("before**********" + sequence);
             if (currentCode == dictionary.size() + 1) {
+                //System.out.println("--------------");
+                //System.out.println(sequence + sequence.substring(0, 1));
                 //extra case handling
                 dictionary.put(dictionary.size() + 1, sequence + sequence.substring(0, 1));
             } else if (sequence.length() != 0) {
+                //System.out.println("***********************else" + dictionary.get(currentCode));
                 dictionary.put(dictionary.size() + 1, sequence + dictionary.get(currentCode).substring(0, 1));
+                //System.out.println(sequence + dictionary.get(currentCode).substring(0, 1));
             }
         }
 
@@ -111,6 +116,7 @@ public class Decode {
 
         // Start the sequence afresh with the new byte string.
         sequence = dictionary.get(currentCode);
+        //System.out.println("sequence: " + sequence);
         //System.out.println("");
     }
 
